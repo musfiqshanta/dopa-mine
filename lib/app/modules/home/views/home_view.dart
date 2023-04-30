@@ -13,7 +13,13 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dopa Mine'),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=800")),
+        ),
+        title: const Text('Dopa-Mine'),
         centerTitle: true,
       ),
       body: Padding(
@@ -42,7 +48,7 @@ class HomeView extends GetView<HomeController> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 fixedSize: Size(300, 50),
-                backgroundColor: Color(0xffB53471),
+                backgroundColor: Color(0xff30336b),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -144,7 +150,7 @@ class GameCard extends StatelessWidget {
                 Get.to(GamePlayView());
               },
               child: Text(
-                "Play Game",
+                "Join Game",
                 style: TextStyle(fontSize: 18),
               ),
             ),

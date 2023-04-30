@@ -38,7 +38,7 @@ class GameCreateView extends GetView<GameCreateController> {
                           borderSide: BorderSide(width: 1))),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -49,7 +49,7 @@ class GameCreateView extends GetView<GameCreateController> {
                         child: TextField(
                           decoration: InputDecoration(
                               prefix: Text("A"),
-                              label: Text("Choice"),
+                              label: Text("Options"),
                               border: OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10.0)),
@@ -61,16 +61,16 @@ class GameCreateView extends GetView<GameCreateController> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Row(
                   children: [
                     SizedBox(
-                      width: Get.mediaQuery.size.width / 2,
+                      width: Get.mediaQuery.size.width / 2.5,
                       child: TextField(
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                            label: Text("Game Entry Fee"),
+                            label: Text("Entry Fee"),
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0)),
@@ -82,8 +82,7 @@ class GameCreateView extends GetView<GameCreateController> {
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            fixedSize:
-                                Size(Get.mediaQuery.size.width / 2.5, 50),
+                            fixedSize: Size(Get.mediaQuery.size.width / 2, 50),
                             backgroundColor: Color(0xffB33771)),
                         onPressed: () {
                           DatePicker.showDatePicker(
@@ -122,6 +121,4 @@ class GameCreateView extends GetView<GameCreateController> {
           ),
         ));
   }
-
-  
 }

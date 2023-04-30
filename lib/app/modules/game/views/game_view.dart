@@ -12,7 +12,13 @@ class GameView extends GetView<GameController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GameView'),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=800")),
+        ),
+        title: const Text('Game View'),
         centerTitle: true,
       ),
       body: MostRecent(),
@@ -62,13 +68,13 @@ class MostRecent extends StatelessWidget {
                   controller: _controller.tabController,
                   tabs: [
                     Tab(
-                      child: Text("My Feed"),
+                      child: Text("My Games"),
                     ),
                     Tab(
-                      child: Text("Best Match"),
+                      child: Text("Games Liked"),
                     ),
                     Tab(
-                      child: Text("Most Recent"),
+                      child: Text("Games History"),
                     ),
                   ]),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
+import 'dart:math' as math;
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
@@ -9,9 +9,153 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.centerRight,
+                  tileMode: TileMode.mirror,
+                  colors: [
+                    Color(0xff16a085),
+                    Color(0xff273c75),
+                  ],
+                ),
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage: NetworkImage(
+                        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=800"),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: ListTile(
+                      title: Text(
+                        "Musfiq Shanta",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        "musfiqshanta@gmail.com",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff30336b),
+                ),
+                child: ListTile(
+                  onTap: () {},
+                  title: Text(
+                    "My Games",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff30336b),
+                ),
+                child: ListTile(
+                  onTap: () {},
+                  title: Text(
+                    "Games I liked",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff30336b),
+                ),
+                child: ListTile(
+                  onTap: () {},
+                  title: Text(
+                    "Games history",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff30336b),
+                ),
+                child: ListTile(
+                  onTap: () {},
+                  title: Text(
+                    "Settings",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff30336b),
+                ),
+                child: ListTile(
+                  onTap: () {},
+                  title: Text(
+                    "Log Out",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text('ProfileView'),
         centerTitle: true,
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.edit))],
       ),
       body: SingleChildScrollView(
         clipBehavior: Clip.none,
@@ -250,17 +394,6 @@ class ProfileView extends GetView<ProfileController> {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              ListTile(
-                leading: Icon(Icons.email),
-                title: Text(
-                  "Skype",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  "musfiq",
-                  style: TextStyle(fontSize: 18),
-                ),
-              )
             ],
           ),
         ),

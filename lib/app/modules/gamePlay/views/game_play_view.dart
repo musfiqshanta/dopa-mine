@@ -45,19 +45,27 @@ class GamePlayView extends GetView<GamePlayController> {
                       ),
                     ],
                   ),
-                  Answer(),
+                  Answer(
+                    answer: "Germany",
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  Answer(),
+                  Answer(
+                    answer: "Spain",
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  Answer(),
+                  Answer(
+                    answer: "Purtogal",
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  Answer(),
+                  Answer(
+                    answer: "Franch",
+                  ),
                   SizedBox(
                     height: 20,
                   ),
@@ -80,7 +88,7 @@ class GamePlayView extends GetView<GamePlayController> {
                               backgroundColor: Color(0xff273c75)),
                           onPressed: () {},
                           child: Text(
-                            "Duplicates Game",
+                            "Clone Game",
                             style: TextStyle(fontSize: 18),
                           )),
                     ],
@@ -88,87 +96,54 @@ class GamePlayView extends GetView<GamePlayController> {
                   SizedBox(
                     height: 20,
                   ),
+                  Row(
+                    children: [
+                      Text(
+                        "Entry : 30 Nis",
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff5f27cd)),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Text(
+                        "Total : 300 Nis",
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff22a6b3)),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
-                    "Participate List",
+                    "Share Game",
                     style: TextStyle(fontSize: 22),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Wrap(
+                    runAlignment: WrapAlignment.center,
                     children: [
-                      Text(
-                        "(A).",
-                        style: TextStyle(fontSize: 20),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.share_outlined),
                       ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Wrap(
-                    children: [
-                      Text(
-                        "(B).",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Wrap(
-                    children: [
-                      Text(
-                        "(C).",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Wrap(
-                    children: [
-                      Text(
-                        "(D).",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "John Doe",
-                        style: TextStyle(fontSize: 18),
-                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Image.asset(
+                          "assets/images/whatsapp.png",
+                          width: 25,
+                        ),
+                      )
                     ],
                   ),
                 ],
@@ -180,9 +155,8 @@ class GamePlayView extends GetView<GamePlayController> {
 }
 
 class Answer extends StatelessWidget {
-  const Answer({
-    super.key,
-  });
+  String answer;
+  Answer({required this.answer});
 
   @override
   Widget build(BuildContext context) {
@@ -194,16 +168,29 @@ class Answer extends StatelessWidget {
         style: TextStyle(fontSize: 18),
       ),
       title: Text(
-        "3/14",
+        answer,
         style: TextStyle(fontSize: 18),
       ),
       trailing: SizedBox(
-        width: 200,
+        width: 150,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text("3/6"),
-            IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+            IconButton(
+                onPressed: () {
+                  Get.defaultDialog(
+                      title: "Participate List of A",
+                      content: SizedBox(
+                        height: 100,
+                        child: ListView.builder(
+                            itemCount: 3,
+                            itemBuilder: (context, index) {
+                              return Text("John Doe");
+                            }),
+                      ));
+                },
+                icon: Icon(Icons.more_vert))
           ],
         ),
       ),
